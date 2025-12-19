@@ -22,7 +22,35 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 This keyboard uses `SPLIT_USB_DETECT` by default (enabled automatically on RP2040). This means whichever half has an active USB connection becomes the master automatically. Simply plug the USB cable into the half you want to be the master.
 
-If you want to force a specific half to always be the master regardless of which side has USB connected, you can use one of these methods in your keymap's `config.h`:
+### For Miryoku Users
+
+If you're using the Miryoku layout and want to specify which side will be connected to USB at build time, you can use the `MIRYOKU_HANDEDNESS` option:
+
+```bash
+make beekeeb/piantor:manna-harbour_miryoku \
+  MIRYOKU_NAV=INVERTEDT \
+  MIRYOKU_ALPHAS=COLEMAKDHK \
+  MIRYOKU_HANDEDNESS=MASTER_RIGHT
+```
+
+Or with Docker:
+
+```bash
+docker run --rm -v $(pwd):/qmk_firmware qmkfm/qmk_cli:1.2.0_fixed \
+  make beekeeb/piantor:manna-harbour_miryoku \
+  MIRYOKU_NAV=INVERTEDT \
+  MIRYOKU_ALPHAS=COLEMAKDHK \
+  MIRYOKU_HANDEDNESS=MASTER_RIGHT
+```
+
+Valid values for `MIRYOKU_HANDEDNESS` are:
+* `MASTER_RIGHT` - Forces right half to always be master
+* `MASTER_LEFT` - Forces left half to always be master
+* `EE_HANDS` - Programs handedness into EEPROM (requires additional flashing steps)
+
+### For Other Keymaps
+
+If you're not using Miryoku, you can add one of these to your keymap's `config.h`:
 
 * `#define MASTER_RIGHT` - Forces right half to always be master
 * `#define MASTER_LEFT` - Forces left half to always be master

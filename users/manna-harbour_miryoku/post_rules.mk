@@ -33,6 +33,12 @@ ifneq ($(strip $(MIRYOKU_MAPPING)),)
   OPT_DEFS += -DMIRYOKU_MAPPING_$(MIRYOKU_MAPPING)
 endif
 
+# split keyboard handedness
+
+ifneq ($(strip $(MIRYOKU_HANDEDNESS)),)
+  OPT_DEFS += -D$(MIRYOKU_HANDEDNESS)
+endif
+
 # kludges
 
 # thumb combos
