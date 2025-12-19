@@ -25,7 +25,7 @@ This keyboard uses `SPLIT_USB_DETECT` by default (enabled automatically on RP204
 If you want to force a specific half to always be the master regardless of which side has USB connected, you can use one of these methods in your keymap's `config.h`:
 
 * `#define MASTER_RIGHT` - Forces right half to always be master
-* `#define MASTER_LEFT` - Forces left half to always be master  
+* `#define MASTER_LEFT` - Forces left half to always be master
 * `#define EE_HANDS` - Programs each half's handedness into EEPROM (see [QMK documentation](https://docs.qmk.fm/#/feature_split_keyboard?id=handedness-by-eeprom))
 
 For most users, the default auto-detection works best. See the [QMK Split Keyboard documentation](https://docs.qmk.fm/#/feature_split_keyboard) for more details.
@@ -34,5 +34,5 @@ For most users, the default auto-detection works best. See the [QMK Split Keyboa
 
 Enter the bootloader in 2 ways:
 
-* **Physical reset button**: Hold the `BOOTSEL` button on the PCB while plugin in the usb cable.
+* **Physical reset button**: Hold the `BOOTSEL` button on the PCB while plugging in the usb cable.
 * **Keycode in layout**: Press the key mapped to `QK_BOOT` if it is available
